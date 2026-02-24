@@ -1,0 +1,20 @@
+name: Hello From Windows
+on: push
+jobs:
+  greet-windows: 
+    runs-on: windows-latest
+
+    steps:
+      - name: Powershell greetings
+        shell: pwsh
+        run: |
+          Write-Host "Hello from Windows!" -ForegroundColor green
+          Write-Host "Powershell Version: $($PSVersionTable.PSVersion)"
+          Get-Date
+
+      - name: Check Environment
+        shell: pwsh
+        run: |
+          Write-Host "Current directory: $(Get-Location)"
+          Write-Host "Environment variables:"
+          Get-ChildItem Env: | Select-Object Name, Value | Format-Table
