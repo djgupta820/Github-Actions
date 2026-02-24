@@ -14,7 +14,7 @@ jobs:
 
       - name: "Show Date and Time"
         shell: pwsh
-        run: Write-Host $(Get-Date -Format \"DD-mm-yyyy HH:MM:ss\")
+        run: Write-Host "$(Get-Date -Format \"DD-mm-yyyy HH:MM:ss\")"
 
       - name: "Show Environment Variables"
         shell: pwsh
