@@ -1,0 +1,23 @@
+name: List Variables
+on: 
+  push:
+    branch: main
+
+jobs:
+  list-vars:
+    runs-on: windows-latest
+
+    steps:
+      - name: Print Name
+        shell: pwsh
+        run: Write-Host "Dheeraj Gupta"
+
+      - name: "Show Date and Time"
+        shell: pwsh
+        run: Write-Host $(Get-Date -Format \"DD-mm-yyyy HH:MM:ss\")
+
+      - name: "Show Environment Variables"
+        shell: pwsh
+        run: |
+          Write-Host "Environment Variables"
+          Get-ChildItem Env: | Select-Object Name, Value | Format-Table
